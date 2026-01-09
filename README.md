@@ -1,1 +1,1 @@
-# databricks-14-day-ai-challenge-
+# databricks-14-day-ai-challenge
