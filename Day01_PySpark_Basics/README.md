@@ -36,4 +36,4 @@ This hands-on exercise helped solidify core Spark concepts while demonstrating h
 
 ---
 
-📌 This notebook represents **Day 1 progress** in my Databricks learning journey, guided by **Indian Data Club** and **Codebasics**.
+📌 This notebook represents **Day 1 progress** in my Databricks learning journey, guided by **Indian Data Club** , **Codebasics** and **Databricks** .
