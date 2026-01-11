@@ -22,7 +22,7 @@ PySpark uses lazy execution, allowing Spark to optimize transformations before e
 
 Joins are a core concept in data engineering and are used to combine transactional data with aggregated or derived insights.
 
-Why joins are important:
+**Why joins are important:**
 
 Enable feature enrichment by merging aggregated data back into raw event-level data.
 
@@ -30,7 +30,7 @@ Help model real-world relationships between datasets.
 
 Commonly used in analytics pipelines and ML feature engineering.
 
-Join types overview:
+**Join types overview:**
 
 Inner Join – Returns only matching records from both datasets.
 
