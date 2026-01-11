@@ -7,8 +7,8 @@ The notebook demonstrates how PySpark is used in real-world data engineering wor
 
 An e-commerce transactions dataset is used throughout this notebook to apply concepts such as UDFs, window functions, aggregations, rankings, and joins.
 
-📚 Learnings
-🔹 PySpark vs Pandas
+**📚 Learnings
+🔹 PySpark vs Pandas**
 
 <img width="1559" height="821" alt="image" src="https://github.com/user-attachments/assets/f4980186-2158-45ad-a2bd-cb0b13b595a9" />
 
@@ -18,7 +18,7 @@ PySpark enables distributed processing across clusters, making it ideal for larg
 
 PySpark uses lazy execution, allowing Spark to optimize transformations before executing them, improving performance and scalability.
 
-🔹 Joins in PySpark 
+**🔹Joins in PySpark**
 
 Joins are a core concept in data engineering and are used to combine transactional data with aggregated or derived insights.
 
@@ -40,7 +40,7 @@ Right Join – Retains all records from the secondary dataset.
 
 Outer Join – Retains all records from both datasets with nulls for missing matches.
 
-🔹 Window Functions (Running Totals & Rankings)
+**🔹 Window Functions (Running Totals & Rankings)**
 
 Window functions allow calculations across related rows without reducing the number of rows, which makes them extremely powerful for analytics.
 
@@ -50,7 +50,7 @@ Used to rank product categories by total revenue.
 
 Widely applied in time-based analytics, customer behavior analysis, and ranking problems.
 
-🔹 User-Defined Functions (UDFs)
+**🔹 User-Defined Functions (UDFs)**
 
 User-Defined Functions (UDFs) allow custom logic to be applied when built-in Spark functions are not sufficient.
 
@@ -60,14 +60,14 @@ Enable feature engineering directly within PySpark pipelines.
 
 Should be used judiciously, as built-in Spark functions are more optimized than UDFs.
 
-🛠️ Tasks Performed
-✅ 1. Load Full E-commerce Dataset
+**🛠️ Tasks Performed**
+**✅ 1. Load Full E-commerce Dataset**
 
 Loaded a cleaned e-commerce transactions dataset into Databricks.
 
 Inspected sample records to understand available attributes.
 
-✅ 2. Create Derived Features using UDFs
+**✅ 2. Create Derived Features using UDFs**
 
 Implemented a User-Defined Function to classify users into age groups:
 
@@ -75,7 +75,7 @@ young, middle_aged, senior, old
 
 Added a new derived column age_group to enhance analytical usability.
 
-✅ 3. Calculate Running Totals using Window Functions
+**✅ 3. Calculate Running Totals using Window Functions**
 
 Applied window functions to calculate cumulative purchase amounts per user.
 
@@ -83,7 +83,7 @@ Used a composite user identity (User_Name, Country, Age) to avoid incorrect aggr
 
 Preserved transaction-level granularity while generating cumulative insights.
 
-✅ 4. Rank Product Categories by Revenue
+**✅ 4. Rank Product Categories by Revenue**
 
 Aggregated transaction-level data to compute total revenue per product category.
 
@@ -91,7 +91,7 @@ Ranked product categories based on total revenue using window ranking functions.
 
 Identified top-performing product categories across the dataset.
 
-✅ 5. Perform Complex Joins for Data Enrichment
+**✅ 5. Perform Complex Joins for Data Enrichment**
 
 Joined aggregated product-level rankings back to the transaction-level dataset.
 
