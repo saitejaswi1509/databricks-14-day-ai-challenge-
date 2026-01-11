@@ -1,5 +1,4 @@
-## 📘 Day 3 – PySpark Transformations Deep Dive
-Databricks 14-Day AI Challenge 🚀
+## 📘 Day 3 – PySpark Transformations Deep Dive Databricks 14-Day AI Challenge 🚀
 
 This notebook is part of Day 3 of the Databricks 14-Day AI Challenge, where the focus is on building strong fundamentals in PySpark transformations through hands-on practice.
 
