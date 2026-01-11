@@ -103,12 +103,12 @@ Product-level total revenue
 
 Product revenue rank
 
-📌 Key Takeaways
+**📌 Key Takeaways**
 
-PySpark enables scalable data processing beyond single-machine limitations.
+* PySpark enables scalable data processing beyond single-machine limitations.
 
-Window functions are powerful for cumulative metrics and ranking-based analysis.
+* Window functions are powerful for cumulative metrics and ranking-based analysis.
 
-Joins allow seamless enrichment of transactional data with derived features.
+* Joins allow seamless enrichment of transactional data with derived features.
 
-This notebook reflects real-world data engineering and analytics patterns.
+* This notebook reflects real-world data engineering and analytics patterns.
