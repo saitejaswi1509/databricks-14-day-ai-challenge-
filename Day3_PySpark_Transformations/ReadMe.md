@@ -1,4 +1,4 @@
-<img width="816" height="463" alt="Screenshot 2026-01-11 at 7 50 05 AM" src="https://github.com/user-attachments/assets/3ce8060a-6805-4c13-ba7f-9a0d1cde9e61" />📘 Day 3 – PySpark Transformations Deep Dive
+📘 Day 3 – PySpark Transformations Deep Dive
 Databricks 14-Day AI Challenge 🚀
 
 This notebook is part of Day 3 of the Databricks 14-Day AI Challenge, where the focus is on building strong fundamentals in PySpark transformations through hands-on practice.
