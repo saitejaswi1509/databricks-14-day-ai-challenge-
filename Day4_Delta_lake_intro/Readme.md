@@ -18,6 +18,7 @@ Delta vs Parquet
 Compared Delta Lake and Parquet to understand why Delta is preferred for production pipelines (ACID, time travel, schema control).
 
 🛠️ Hands-On Tasks Completed
+
 1️⃣ Convert Source Data to Delta Format
 
 Loaded existing e-commerce transaction data from the Databricks catalog
