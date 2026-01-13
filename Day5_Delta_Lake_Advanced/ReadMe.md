@@ -1,6 +1,6 @@
 ## 🚀 Day 05 – Delta Lake Advanced | Databricks 14-Day AI Challenge
 
-This notebook is part of the Databricks 14-Day AI Challenge (Phase 1) and focuses on advanced Delta Lake concepts that are essential for building reliable, scalable, and production-ready data pipelines.
+This notebook is part of the Databricks 14-Day AI Challenge (Phase 2) and focuses on advanced Delta Lake concepts that are essential for building reliable, scalable, and production-ready data pipelines.
 
 The objective of Day 5 was to move beyond basic Delta Lake usage and gain a deep understanding of how Delta handles incremental data changes, historical tracking, performance optimization, and storage management, all through hands-on implementation.
 
