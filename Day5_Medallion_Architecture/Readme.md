@@ -74,7 +74,7 @@ Built KPIs such as:
 
 - Revenue by country
 
-Optimized Gold tables for direct consumption by BI tools and analytics queries.
+Optimized Gold tables for direct consumption by BI tools and analytics queries if needed.
 
 **🧠 Key Takeaways**
 * **Bronze** = raw truth (observe, don’t modify)
