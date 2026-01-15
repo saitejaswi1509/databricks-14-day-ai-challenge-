@@ -1,4 +1,4 @@
-### 📅 Day 7 – Workflows & Job Orchestration** | Databricks 14 Days AI Challenge | Phase 2
+### 📅 Day 7 – Workflows & Job Orchestration | Databricks 14 Days AI Challenge | Phase 2
 This notebook set focuses on building production-ready data pipelines using Databricks Jobs and multi-task workflows.
 
 **📘 What I Learned**
