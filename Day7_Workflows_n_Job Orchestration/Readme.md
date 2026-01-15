@@ -29,10 +29,10 @@ Gold (Aggregated Business Metrics)
 - Validated end-to-end execution and outputs
 
 **⚙️ Technologies Used**
-Databricks
-PySpark
-Delta Lake
-Databricks Workflows & Jobs
+- Databricks
+- PySpark
+- Delta Lake
+- Databricks Workflows & Jobs
 
 **✅ Outcome**
 - Successfully built and scheduled a production-style automated data pipeline following industry best practices.
