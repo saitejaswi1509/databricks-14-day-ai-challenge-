@@ -12,9 +12,9 @@ This notebook set focuses on building production-ready data pipelines using Data
 **🏗️ Architecture Implemented**
   
 Medallion Architecture Bronze (Raw Data)
- ↓
+ -->
 Silver (Cleaned & Standardized)
- ↓
+ -->
 Gold (Aggregated Business Metrics)
 
 
