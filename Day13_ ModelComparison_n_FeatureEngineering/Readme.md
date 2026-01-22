@@ -1,4 +1,4 @@
-### 📘 Day 13: Model Comparison & Feature Engineering | Databricks 14-Day AI Challenge
+### 📘 Day 13: Databricks 14-Day AI Challenge | Model Comparison & Feature Engineering 
 
 This notebook focuses on building a complete Spark ML workflow to train multiple models, compare their performance using MLflow, and select the best model based on evaluation metrics. The emphasis is on reusability, fairness in comparison, and production-ready design.
 
