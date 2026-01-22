@@ -17,6 +17,8 @@ Silver (Cleaned & Standardized)
  ↓
 Gold (Aggregated Business Metrics)
 
+
+
 <img width="1587" height="877" alt="image" src="https://github.com/user-attachments/assets/01adfcc2-64f3-48d3-99c8-5f85abaa141c" />
 
 **Each layer is implemented as a separate notebook and orchestrated using a single multi-task Databricks Job.**
