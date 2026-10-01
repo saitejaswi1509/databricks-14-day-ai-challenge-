@@ -1,0 +1,26 @@
+bundle:
+  name: ecommerce-gold-dashboard
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog for dashboard datasets
+    default: ecommerce
+  schema:
+    description: Unity Catalog schema for dashboard datasets
+    default: gold
+  warehouse_id:
+    description: SQL warehouse used to run dashboard queries
+    default: "1127c4e6a50dc547"
+
+targets:
+  dev:
+    default: true
+    mode: development
+    workspace:
+      host: https://dbc-36ba8347-bc42.cloud.databricks.com
+    variables:
+      catalog: ecommerce
+      schema: gold

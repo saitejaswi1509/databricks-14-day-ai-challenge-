@@ -1,0 +1,8 @@
+resources:
+  dashboards:
+    product_performance:
+      display_name: "Ecommerce gold · product performance"
+      file_path: ../src/dashboards/product_performance.lvdash.json
+      warehouse_id: ${var.warehouse_id}
+      dataset_catalog: ${var.catalog}
+      dataset_schema: ${var.schema}

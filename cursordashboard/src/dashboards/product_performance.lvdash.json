@@ -1,0 +1,249 @@
+{
+  "datasets": [
+    {
+      "name": "product_count",
+      "displayName": "Number of products",
+      "queryLines": [
+        "SELECT product_name, COUNT(*) AS product_count ",
+        "FROM ecommerce.gold.products ",
+        "GROUP BY product_name ",
+        "ORDER BY product_name"
+      ]
+    },
+    {
+      "name": "revenue_ranges",
+      "displayName": "Revenue ranges",
+      "queryLines": [
+        "WITH buckets AS ( ",
+        "  SELECT '< $10k' AS revenue_range, 0 AS sort_order ",
+        "  UNION ALL SELECT '$10k–$20k', 1 ",
+        "  UNION ALL SELECT '$20k+', 2 ",
+        "), assigned AS ( ",
+        "  SELECT product_name, revenue, ",
+        "    CASE ",
+        "      WHEN revenue < 10000 THEN '< $10k' ",
+        "      WHEN revenue < 20000 THEN '$10k–$20k' ",
+        "      ELSE '$20k+' ",
+        "    END AS revenue_range ",
+        "  FROM ecommerce.gold.products ",
+        ") ",
+        "SELECT b.revenue_range, b.sort_order, ",
+        "  COUNT(a.product_name) AS product_count, ",
+        "  CASE WHEN COUNT(a.product_name) = 0 THEN 'none' ",
+        "       ELSE CONCAT_WS(', ', COLLECT_LIST(a.product_name)) END AS products, ",
+        "  COALESCE(SUM(a.revenue), 0) AS revenue ",
+        "FROM buckets b ",
+        "LEFT JOIN assigned a ON a.revenue_range = b.revenue_range ",
+        "GROUP BY b.revenue_range, b.sort_order ",
+        "ORDER BY b.sort_order"
+      ]
+    },
+    {
+      "name": "purchases_rank",
+      "displayName": "Purchases by product",
+      "queryLines": [
+        "SELECT product_name, purchases, revenue ",
+        "FROM ecommerce.gold.products ",
+        "ORDER BY purchases DESC"
+      ]
+    },
+    {
+      "name": "revenue_by_product",
+      "displayName": "Revenue by product",
+      "queryLines": [
+        "SELECT product_name, revenue ",
+        "FROM ecommerce.gold.products ",
+        "ORDER BY revenue DESC"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "overview",
+      "displayName": "Product performance",
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1",
+      "layout": [
+        {
+          "widget": {
+            "name": "title",
+            "multilineTextboxSpec": {
+              "lines": ["## Ecommerce gold · product performance"]
+            }
+          },
+          "position": { "x": 0, "y": 0, "width": 12, "height": 1 }
+        },
+        {
+          "widget": {
+            "name": "subtitle",
+            "multilineTextboxSpec": {
+              "lines": ["Source: ecommerce.gold.products. Product A leads on both revenue and purchases."]
+            }
+          },
+          "position": { "x": 0, "y": 1, "width": 12, "height": 1 }
+        },
+        {
+          "widget": {
+            "name": "pie-product-count",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "product_count",
+                  "fields": [
+                    { "name": "product_name", "expression": "`product_name`" },
+                    { "name": "product_count", "expression": "`product_count`" }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "product_count",
+                  "scale": { "type": "quantitative" },
+                  "displayName": "Products"
+                },
+                "color": {
+                  "fieldName": "product_name",
+                  "scale": { "type": "categorical" },
+                  "displayName": "Product"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Pie · number of products"
+              }
+            }
+          },
+          "position": { "x": 0, "y": 2, "width": 6, "height": 6 }
+        },
+        {
+          "widget": {
+            "name": "bar-revenue-ranges",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "revenue_ranges",
+                  "fields": [
+                    { "name": "revenue_range", "expression": "`revenue_range`" },
+                    { "name": "product_count", "expression": "`product_count`" }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "revenue_range",
+                  "scale": { "type": "categorical" },
+                  "displayName": "Revenue range"
+                },
+                "y": {
+                  "fieldName": "product_count",
+                  "scale": { "type": "quantitative" },
+                  "displayName": "Number of products"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Bar · revenue ranges"
+              }
+            }
+          },
+          "position": { "x": 6, "y": 2, "width": 6, "height": 6 }
+        },
+        {
+          "widget": {
+            "name": "bar-most-purchases",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "purchases_rank",
+                  "fields": [
+                    { "name": "product_name", "expression": "`product_name`" },
+                    { "name": "purchases", "expression": "`purchases`" }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "purchases",
+                  "scale": { "type": "quantitative" },
+                  "displayName": "Purchases"
+                },
+                "y": {
+                  "fieldName": "product_name",
+                  "scale": { "type": "categorical" },
+                  "displayName": "Product"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Bar · most purchases"
+              }
+            }
+          },
+          "position": { "x": 0, "y": 8, "width": 6, "height": 6 }
+        },
+        {
+          "widget": {
+            "name": "bar-revenue-by-product",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "revenue_by_product",
+                  "fields": [
+                    { "name": "product_name", "expression": "`product_name`" },
+                    { "name": "revenue", "expression": "`revenue`" }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "product_name",
+                  "scale": { "type": "categorical" },
+                  "displayName": "Product"
+                },
+                "y": {
+                  "fieldName": "revenue",
+                  "scale": { "type": "quantitative" },
+                  "displayName": "Revenue ($)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "USD",
+                    "decimalPlaces": { "type": "max", "places": 0 }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Bar · revenue by product"
+              }
+            }
+          },
+          "position": { "x": 6, "y": 8, "width": 6, "height": 6 }
+        }
+      ]
+    }
+  ]
+}
